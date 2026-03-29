@@ -185,16 +185,14 @@
     </div>
 
     <script>
-        // Check if admin ID is already in URL
+        // ✅ FIX: Use /a/:adminId path-based sessions — no sessionStorage
         const urlParams = new URLSearchParams(window.location.search);
         const adminIdFromUrl = urlParams.get('admin');
 
         if (adminIdFromUrl) {
-            // Admin already selected, store and redirect
-            sessionStorage.setItem('selectedAdminId', adminIdFromUrl);
-            window.location.href = 'index.html';
+            // Legacy ?admin= support — redirect to new path-based route
+            window.location.href = `/a/${adminIdFromUrl}`;
         } else {
-            // Load admins list
             loadAdmins();
         }
 
@@ -235,13 +233,13 @@
                         <div class="admin-avatar">${initials}</div>
                         <div class="admin-info">
                             <h3>${admin.name}</h3>
-                            <p>${admin.email}</p>
+                            <p>${admin.connected ? '🟢 Inapatikana' : '⚪ Haipo'}</p>
                         </div>
                     </div>
                     <div class="admin-card-body">
                         <div class="admin-stat">
                             <span class="admin-stat-label">Hali:</span>
-                            <span class="admin-status">${admin.status === 'active' ? 'Inafanya Kazi' : 'Haifanyi Kazi'}</span>
+                            <span class="admin-status">Inafanya Kazi</span>
                         </div>
                     </div>
                 `;
@@ -251,21 +249,14 @@
         }
 
         function selectAdmin(adminId) {
-            // Store selected admin
-            sessionStorage.setItem('selectedAdminId', adminId);
-            
-            // Show loading indicator
+            // ✅ FIX: Redirect to /a/:adminId — server creates httpOnly session cookie
             document.body.innerHTML = `
                 <div class="loading-state" style="display: block; padding-top: 200px;">
                     <div class="spinner"></div>
                     <p style="font-size: 20px;">Inaelekeza kwenye fomu ya maombi...</p>
                 </div>
             `;
-            
-            // Redirect to application
-            setTimeout(() => {
-                window.location.href = 'index.html';
-            }, 500);
+            window.location.href = `/a/${adminId}`;
         }
     </script>
 </body>
