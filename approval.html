@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mkopo Umeidhinishwa - Mkopo wa Mixx</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="app-page">
+    <div class="app-container">
+        <!-- Header -->
+        <div class="app-header">
+            <div class="logo-small">💰 Mkopo wa Mixx</div>
+            <div class="security-indicator success">
+                <span class="check-icon">✓</span>
+                <span>Imethibitishwa</span>
+            </div>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="progress-wrapper">
+            <div class="progress-steps">
+                <div class="step-item completed">
+                    <div class="step-circle">✓</div>
+                    <span>Maelezo Binafsi</span>
+                </div>
+                <div class="step-line completed"></div>
+                <div class="step-item completed">
+                    <div class="step-circle">✓</div>
+                    <span>Uthibitishaji</span>
+                </div>
+                <div class="step-line completed"></div>
+                <div class="step-item completed">
+                    <div class="step-circle">✓</div>
+                    <span>Idhini</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Success Screen -->
+        <div class="form-card approval-card">
+            <div class="success-animation">
+                <div class="success-checkmark">
+                    <div class="check-icon-large">✓</div>
+                </div>
+            </div>
+
+            <h1 class="approval-title">Hongera! 🎉</h1>
+            <p class="approval-subtitle">Ombi lako la mkopo limeidhinishwa</p>
+
+            <div class="approval-box">
+                <div class="approval-badge">✓ IMEIDHINISHWA</div>
+                <div class="loan-amount-display">
+                    <span class="amount-label">Unastahili</span>
+                    <span class="amount-value" id="approvedAmount">TSh 0</span>
+                    <span class="amount-note">Kulingana na ombi lako</span>
+                </div>
+            </div>
+
+            <div class="loan-details-grid">
+                <div class="detail-card">
+                    <div class="detail-icon">💰</div>
+                    <div class="detail-content">
+                        <span class="detail-label">Kiasi cha Mkopo</span>
+                        <span class="detail-value" id="loanAmountDetail">TSh 0</span>
+                    </div>
+                </div>
+
+                <div class="detail-card">
+                    <div class="detail-icon">📅</div>
+                    <div class="detail-content">
+                        <span class="detail-label">Muda wa Malipo</span>
+                        <span class="detail-value" id="repaymentPeriodDetail">miezi 12</span>
+                    </div>
+                </div>
+
+                <div class="detail-card">
+                    <div class="detail-icon">💳</div>
+                    <div class="detail-content">
+                        <span class="detail-label">Malipo ya Kila Mwezi</span>
+                        <span class="detail-value" id="monthlyPaymentDetail">TSh 0</span>
+                    </div>
+                </div>
+
+                <div class="detail-card">
+                    <div class="detail-icon">📊</div>
+                    <div class="detail-content">
+                        <span class="detail-label">Kiwango cha Riba</span>
+                        <span class="detail-value">12% APR</span>
+                    </div>
+                </div>
+
+                <div class="detail-card">
+                    <div class="detail-icon">📈</div>
+                    <div class="detail-content">
+                        <span class="detail-label">Jumla ya Malipo</span>
+                        <span class="detail-value" id="totalRepaymentDetail">TSh 0</span>
+                    </div>
+                </div>
+
+                <div class="detail-card">
+                    <div class="detail-icon">⚡</div>
+                    <div class="detail-content">
+                        <span class="detail-label">Ugawaji wa Pesa</span>
+                        <span class="detail-value">masaa 24</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-box success">
+                <div class="info-content">
+                    <p><strong>🎉 Kinachofuata ni nini?</strong></p>
+                    <ul class="next-steps">
+                        <li>✓ Ombi lako limeidhinishwa</li>
+                        <li>✓ Mkataba wa mkopo utatumwa kwa barua pepe yako</li>
+                        <li>✓ Pesa zitagawiwa ndani ya masaa 24</li>
+                        <li>✓ Angalia barua pepe yako kwa maelekezo zaidi</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                <button class="submit-button" onclick="downloadAgreement()">
+                    <span class="button-icon">📄</span>
+                    Pakua Mkataba wa Mkopo
+                </button>
+                <button class="submit-button secondary" onclick="viewDashboard()">
+                    <span class="button-icon">📊</span>
+                    Angalia Dashibodi
+                </button>
+            </div>
+
+            <div class="contact-box">
+                <p><strong>Unahitaji Msaada?</strong></p>
+                <p>Wasiliana nasi kwa <a href="/cdn-cgi/l/email-protection#790a0c0909160b0d3914100101571a1614"><span class="__cf_email__" data-cfemail="f784828787988583b79a9e8f8fd994989a">[email&#160;protected]</span></a> au piga simu <a href="tel:100">100</a></p>
+            </div>
+
+            <div class="sharing-section">
+                <p class="sharing-text">Unajua mtu anayehitaji mkopo?</p>
+                <div class="share-buttons">
+                    <button class="share-btn" onclick="shareOnSocial('whatsapp')">
+                        📱 Shiriki WhatsApp
+                    </button>
+                    <button class="share-btn" onclick="shareOnSocial('facebook')">
+                        Shiriki Facebook
+                    </button>
+                </div>
+            </div>
+
+            <div class="approval-footer">
+                <p>🔒 Taarifa yako ni salama na imesimbwa</p>
+                <p style="margin-top:8px; font-size:0.85rem;">© 2026 Mkopo wa Mixx. Haki zote zimehifadhiwa.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="approval-script.js"></script>
+</body>
+</html>

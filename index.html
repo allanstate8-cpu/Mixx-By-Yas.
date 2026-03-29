@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mkopo wa Mixx - Mikopo ya Haraka na Salama</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-icon">💰</span>
+                <span class="logo-text">Mkopo wa Mixx</span>
+            </div>
+            <div class="nav-links">
+                <a href="#calculator">Kokotoa</a>
+                <a href="#features">Huduma</a>
+                <a href="#security">Usalama</a>
+                <a href="#reviews">Maoni</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="trust-badge">
+                    <span class="badge-icon">✓</span>
+                    <span>Leseni & Udhibiti</span>
+                </div>
+                <h1 class="hero-title">Pata Mkopo Wako katika <span class="highlight">Dakika 15</span></h1>
+                <p class="hero-subtitle">Mikopo ya haraka, wazi, na salama kutoka TSh 500,000 hadi TSh 50,000,000</p>
+                
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-number">50K+</div>
+                        <div class="stat-label">Wateja Wenye Furaha</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">TSh 2.5 Bilioni+</div>
+                        <div class="stat-label">Mikopo Iliyotolewa</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">4.9★</div>
+                        <div class="stat-label">Alama ya Kuaminika</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Loan Calculator Section -->
+    <section id="calculator" class="calculator-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Kokotoa Mkopo Wako</h2>
+                <p class="section-subtitle">Pata makadirio ya haraka na kikokotozi chetu cha uwazi</p>
+            </div>
+
+            <div class="calculator-card">
+                <div class="calculator-inputs">
+                    <div class="calc-group">
+                        <label>Kiasi cha Mkopo</label>
+                        <div class="amount-display">
+                            <span class="currency">TSh</span>
+                            <input type="number" id="calcAmount" value="5000000" min="500000" max="50000000" step="100000">
+                        </div>
+                        <input type="range" id="calcSlider" min="500000" max="50000000" value="5000000" step="100000">
+                        <div class="range-labels">
+                            <span>TSh 500,000</span>
+                            <span>TSh 50,000,000</span>
+                        </div>
+                    </div>
+
+                    <div class="calc-group">
+                        <label>Muda wa Mkopo</label>
+                        <select id="calcTerm">
+                            <option value="3">Miezi 3</option>
+                            <option value="6">Miezi 6</option>
+                            <option value="12" selected>Miezi 12</option>
+                            <option value="24">Miezi 24</option>
+                            <option value="36">Miezi 36</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="calculator-results">
+                    <div class="result-item">
+                        <span class="result-label">Malipo ya Kila Mwezi</span>
+                        <span class="result-value" id="monthlyPayment">TSh 458,000</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Kiwango cha Riba (APR)</span>
+                        <span class="result-value">12%</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Jumla ya Malipo</span>
+                        <span class="result-value" id="totalRepayment">TSh 5,496,000</span>
+                    </div>
+                </div>
+
+                <button class="cta-button" onclick="window.location.href='application.html'">
+                    Omba Sasa - Pata Uamuzi wa Haraka
+                    <span class="arrow">→</span>
+                </button>
+
+                <div class="calculator-footer">
+                    <p>✓ Hakuna ada zilizofichwa • ✓ Hakuna adhabu ya malipo ya mapema • ✓ Idhini ya haraka</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Kwa Nini Uchague Mkopo wa Mixx?</h2>
+                <p class="section-subtitle">Tunafanya ukopaji kuwa rahisi, haraka, na wazi</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Idhini ya Haraka</h3>
+                    <p>Pata idhini katika dakika 15 tu na mfumo wetu wa kiotomatiki</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">💯</div>
+                    <h3>Uwazi wa 100%</h3>
+                    <p>Hakuna ada zilizofichwa. Unacho kuona ndio unacholipa. Kila wakati.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Usalama wa Kiwango cha Benki</h3>
+                    <p>Usimbaji wa 256-bit SSL unalinda taarifa zako zote za kibinafsi</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Rafiki kwa Simu</h3>
+                    <p>Omba kutoka mahali popote, wakati wowote kwenye kifaa chochote</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">💳</div>
+                    <h3>Malipo Rahisi</h3>
+                    <p>Chagua ratiba yako ya malipo inayolingana na bajeti yako</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Hakuna Adhabu ya Malipo ya Mapema</h3>
+                    <p>Lipa mkopo wako mapema bila malipo ya ziada yoyote</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Security Section -->
+    <section id="security" class="security-section">
+        <div class="container">
+            <div class="security-content">
+                <div class="security-text">
+                    <h2 class="section-title">Usalama Wako ni Kipaumbele Chetu</h2>
+                    <p class="section-subtitle">Tunatumia hatua za usalama za kiwango cha juu kulinda data yako</p>
+                    
+                    <div class="security-features">
+                        <div class="security-item">
+                            <span class="check-icon">✓</span>
+                            <div>
+                                <strong>Usimbaji wa 256-bit SSL</strong>
+                                <p>Kiwango sawa cha usalama kinachotumiwa na benki kubwa</p>
+                            </div>
+                        </div>
+                        <div class="security-item">
+                            <span class="check-icon">✓</span>
+                            <div>
+                                <strong>Imethibitishwa na Leseni</strong>
+                                <p>Leseni kamili na kudhibitiwa na mamlaka za kifedha</p>
+                            </div>
+                        </div>
+                        <div class="security-item">
+                            <span class="check-icon">✓</span>
+                            <div>
+                                <strong>Faragha ya Data Imehakikishwa</strong>
+                                <p>Kamwe hatuuzi au kushiriki taarifa zako za kibinafsi</p>
+                            </div>
+                        </div>
+                        <div class="security-item">
+                            <span class="check-icon">✓</span>
+                            <div>
+                                <strong>Uthibitishaji wa Hatua Mbili</strong>
+                                <p>Safu ya ziada ya usalama na uthibitishaji wa PIN na OTP</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="security-badges">
+                    <div class="badge">
+                        <div class="badge-icon">🔒</div>
+                        <div class="badge-text">
+                            <strong>Usalama wa SSL</strong>
+                            <small>Usimbaji wa 256-bit</small>
+                        </div>
+                    </div>
+                    <div class="badge">
+                        <div class="badge-icon">✓</div>
+                        <div class="badge-text">
+                            <strong>Mkopaji Mwenye Leseni</strong>
+                            <small>Kudhibitiwa & Kufuata Sheria</small>
+                        </div>
+                    </div>
+                    <div class="badge">
+                        <div class="badge-icon">🛡️</div>
+                        <div class="badge-text">
+                            <strong>Faragha Imelindwa</strong>
+                            <small>Inafuata GDPR</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="reviews-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Wateja Wetu Wanasema Nini</h2>
+                <p class="section-subtitle">Jiunge na maelfu ya wakopaji wenye furaha</p>
+            </div>
+
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="review-text">"Nilipata idhini katika dakika 10! Mchakato wote ulikuwa laini na wazi. Uzoefu bora wa mkopo niliopata."</p>
+                    <div class="reviewer">
+                        <strong>Sarah M.</strong>
+                        <span>Mteja Aliyethibitishwa</span>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="review-text">"Hakuna ada zilizofichwa, hasa kama ilivyotangazwa. Malipo ya kila mwezi yanaendana kabisa na bajeti yangu. Nashauri sana!"</p>
+                    <div class="reviewer">
+                        <strong>James T.</strong>
+                        <span>Mteja Aliyethibitishwa</span>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="review-text">"Haraka sana na salama. Nilikuwa na wasiwasi kuhusu mikopo ya mtandaoni, lakini Mkopo wa Mixx walinifanya nijisikie salama kila hatua."</p>
+                    <div class="reviewer">
+                        <strong>Maria L.</strong>
+                        <span>Mteja Aliyethibitishwa</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Uko Tayari Kuanza?</h2>
+                <p>Jiunge na wateja 50,000+ wanaoamini Mkopo wa Mixx kwa mahitaji yao ya kifedha</p>
+                <button class="cta-button large" onclick="window.location.href='application.html'">
+                    Omba Sasa - Pata Uamuzi katika Dakika
+                    <span class="arrow">→</span>
+                </button>
+                <p class="cta-note">✓ Hakuna athari kwa alama ya mkopo • ✓ Maombi salama • ✓ Uamuzi wa haraka</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Mkopo wa Mixx</h4>
+                    <p>Mikopo ya haraka, wazi, na salama.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Kampuni</h4>
+                    <a href="#">Kuhusu Sisi</a>
+                    <a href="#">Wasiliana Nasi</a>
+                    <a href="#">Ajira</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Kisheria</h4>
+                    <a href="#">Masharti ya Huduma</a>
+                    <a href="#">Sera ya Faragha</a>
+                    <a href="#">Leseni</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Msaada</h4>
+                    <a href="#">Kituo cha Msaada</a>
+                    <a href="#">Maswali Yanayoulizwa Mara kwa Mara</a>
+                    <a href="#">Mazungumzo ya Moja kwa Moja</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Mkopo wa Mixx. Haki zote zimehifadhiwa. Mkopaji Mwenye Leseni.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="landing-script.js"></script>
+</body>
+</html>
