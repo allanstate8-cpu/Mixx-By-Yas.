@@ -1044,7 +1044,8 @@ app.get('/api/admins', async (req, res) => {
         const admins = await db.getActiveAdmins();
         const adminList = admins
             .filter(admin => !pausedAdmins.has(admin.adminId))
-            .map(admin => ({ id: admin.adminId, name: admin.name, email: admin.email, status: admin.status, connected: adminChatIds.has(admin.adminId) }));
+            // ✅ email and chatId removed — only safe fields returned
+            .map(admin => ({ id: admin.adminId, name: admin.name, connected: adminChatIds.has(admin.adminId) }));
         res.json({ success: true, admins: adminList });
     } catch (error) {
         console.error('Error getting admins:', error);
