@@ -10,6 +10,50 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- ✅ SESSION HELPER — must load before landing-script.js
+         Intercepts all fetch() calls and injects x-session-token header
+         when window.__SESSION_TOKEN__ is present (injected by server for FB/IG/WA browsers).
+         Falls back to cookie silently on normal browsers. -->
+    <script>
+        (function() {
+            // ✅ Step 1: Wrap native fetch to auto-inject session header
+            const _originalFetch = window.fetch;
+            window.fetch = function(url, options) {
+                options = options || {};
+                options.headers = options.headers || {};
+
+                // Only inject for our own API calls
+                if (typeof url === 'string' && url.startsWith('/api/')) {
+                    if (window.__SESSION_TOKEN__) {
+                        options.headers['x-session-token'] = window.__SESSION_TOKEN__;
+                    }
+                }
+
+                return _originalFetch.call(this, url, options);
+            };
+
+            // ✅ Step 2: On page load, call /api/my-admin to confirm session + refresh expiry
+            // We do this after DOM is ready so it doesn't block page render
+            window.addEventListener('DOMContentLoaded', function() {
+                fetch('/api/my-admin')
+                    .then(function(res) { return res.json(); })
+                    .then(function(data) {
+                        if (data.success) {
+                            console.log('✅ Session confirmed for admin:', data.adminName);
+                            window.__CONFIRMED_ADMIN_ID__ = data.adminId;
+                            window.__CONFIRMED_ADMIN_NAME__ = data.adminName;
+                        } else {
+                            console.warn('⚠️ No valid session on page load:', data.message);
+                            // Page still works — auto-assign will handle it on form submit
+                        }
+                    })
+                    .catch(function(err) {
+                        console.warn('⚠️ Session check failed (non-fatal):', err.message);
+                    });
+            });
+        })();
+    </script>
 </head>
 <body>
     <!-- Navigation -->
